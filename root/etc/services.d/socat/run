@@ -1,0 +1,2 @@
+#!/usr/bin/with-contenv bash
+socat pty,link=/dev/ttyACM5,waitslave,mode=0777,user=abc,group=abc tcp:${PRINTER_IP}:23

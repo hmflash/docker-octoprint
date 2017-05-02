@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+
+set -e
+
+if [ ! -d "/opt/octoprint/.git" ];
+then
+    git clone https://github.com/foosel/OctoPrint.git /opt/octoprint
+    pip install /opt/octoprint
+fi
+
+chown -R abc:abc /config
+
+if [ -z "$PRINTER_IP" ];
+then
+    touch /etc/services.d/socat/down
+fi
+
